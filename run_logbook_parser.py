@@ -9,7 +9,8 @@ class LogbookArgs:
     logbook_html_path: str # Path to the complete webpage html
     # file of your SS Gyms Logbook. Save it using "Complete Webpage" option in Chrome
     logbook_csv_output_path: str # Path to write the output
-    # csv file of workouts
+    # csv file of workouts. Output csv file will consist of the columns named,
+    # date, iso_date, sets, reps, weight_lbs
 
 
 def main():

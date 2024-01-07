@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SS Gym Shorts{% endblock  %}</title>
+    <link rel="stylesheet" href="/static/css/water.css"></head>
+<body>
+{% block main %}
+<h1>SS Gym Shorts</h1>
+<p>Upload the File downloaded from <a href="#">SS gym</a> (TODO: detailed instructions).
+
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="file">
+        <input type="submit" value="Upload">
+    </form>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "ssgymshorts"
+version = "0.1.0"
+description = "Process SS Gym logs"
+authors = ["Pradeep Gowda <pradeep@btbytes.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+beautifulsoup4 = "4.12.2"
+simple-parsing = "0.1.4"
+pandas = "2.1.4"
+flask = "^3.0.0"
+gunicorn = "^21.2.0"
+
+[tool.poetry.group.dev.dependencies]
+bandit = "^1.7.5"
+black = "^23.10.1"
+flake8 = "^6.1.0"
+httpx = "^0.25.1"
+isort = "^5.12.0"
+pre-commit = "^3.5.0"
+pytest = "^7.4.3"
+
+[tool.isort]
+profile = "black"
+src_paths = [".", "tests"]
+force_alphabetical_sort = true
+force_single_line = true
+lines_after_imports = 2
+line_length = 88 # back’s default is 88
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

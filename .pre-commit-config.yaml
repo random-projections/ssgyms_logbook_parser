@@ -1,0 +1,49 @@
+default_language_version:
+  python: python3.11
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+
+  - repo: https://github.com/psf/black
+    rev: 23.10.1
+    hooks:
+      - name: black for ./app.py
+        id: black
+        args: ["--extend-exclude", "migrations"]
+        files: ^app.py
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+        exclude: ^.*\b(migrations)\b.*$
+
+  - repo: https://github.com/pycqa/bandit
+    rev: 1.7.5
+    hooks:
+      - id: bandit
+        args: ["-ll", "--configfile", "bandit.yml"]
+        files: ^app.py
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - name: isort for ./app.py
+        id: isort
+        args: ["--profile", "black", "--filter-files"]
+        files: ^app.py
+
+  - repo: https://github.com/python-poetry/poetry
+    rev: '1.7.1'
+    hooks:
+    -   id: poetry-check
+    -   id: poetry-lock
+    -   id: poetry-export
+        args: ["--with", "dev", "-f", "requirements.txt", "-o", "requirements.txt"]
+    -   id: poetry-install
